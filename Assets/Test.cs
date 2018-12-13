@@ -9,13 +9,13 @@ public class Boss
 
     public void Magic()
     {
-        this.mp -= this.cost;
-        if (this.mp <= this.cost)
+        if (this.mp < this.cost)
         {
             Debug.Log("MPが足りないため魔法が使えない。");
         }
         else
         {
+            this.mp -= this.cost;
             Debug.Log("魔法攻撃をした。残りmpは" + this.mp + "。");
         }
     }
@@ -26,9 +26,9 @@ public class Test : MonoBehaviour
     void Start()
     {
         Boss lastboss = new Boss();
-        for (int i = 0; i < 13; i++)
+        for (int i = 0; i < 10; i++)
         {
-        lastboss.Magic();
+            lastboss.Magic();
         }
     }
 }
